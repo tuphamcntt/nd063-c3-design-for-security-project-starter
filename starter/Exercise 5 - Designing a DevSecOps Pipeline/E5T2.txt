@@ -1,0 +1,37 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates:
+1. AWS Config
+2. AWS Security Hub
+3. AWS CloudFormation Guard
+
+### Example vulnerability:
+1. AWS Config: IAM policy that allows unrestricted access to an S3 bucket
+2. AWS Security Hub: Non-compliant EC2 instance that is not using the latest operating system patch
+3. AWS CloudFormation Guard: A security group rule that allows unrestricted access to a database
+
+
+
+## Scan AMI’s or containers for OS vulnerabilities:
+1. AWS Systems Manager
+2. AWS Inspector
+3. AWS Security Hub
+
+### Example vulnerability:
+1. AWS Systems Manager: Scan for Microsoft Exchange Server that allows remote code execution
+2. AWS Inspector: Insecure storage of AWS access keys on EC2 instances
+3. AWS Security Hub: Instances running an outdated or vulnerable version
+
+
+
+## Scan an AWS environment for cloud configuration vulnerabilities:
+1. AWS Config
+2. AWS Security Hub
+3. AWS IAM Access Analyzer
+4. AWS CloudTrail
+
+### Example vulnerability:
+1. AWS Config: S3 buckets are publicly accessible
+2. AWS Security Hub: EC2 instance with a security group that allows inbound traffic from any IP address
+3. AWS IAM Access Analyzer: S3 bucket policy grants access to an external principal or an AWS account outside of organization
+4. AWS CloudTrail: User has modified a VPC security group to allow unrestricted inbound access

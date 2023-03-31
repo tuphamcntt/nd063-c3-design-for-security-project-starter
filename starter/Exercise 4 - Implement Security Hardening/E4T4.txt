@@ -1,0 +1,25 @@
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+
+- Implement a web application firewall (WAF): A WAF can help protect against common web application attacks, such as SQL injection and cross-site scripting (XSS).
+- Use SSL/TLS encryption: Encrypting traffic between clients and the web application instance can help protect against man-in-the-middle attacks.
+- Implement a VPN gateway: A VPN gateway can be used to allow secure remote access to the web application instance.
+- Implement a bastion host
+- Implement network security groups (NSGs)
+
+
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+
+Yes, creating VPC endpoints for S3 can prevent unauthorized access to S3 buckets by bypassing the public internet and routing traffic through private AWS network connections. By creating a VPC endpoint, we can establish a private connection between VPC and S3 without requiring traffic to go over the internet.
+
+
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+
+Applying default encryption settings to S3 buckets will not automatically encrypt data that already exists in the bucket. It will only encrypt new objects that are added to the bucket after the default encryption settings have been applied.
+
+
+
+# What would happen if the original cloud formation templates are applied to this environment.
+
+The CloudFormation templates revert any modifications made back to their original state.

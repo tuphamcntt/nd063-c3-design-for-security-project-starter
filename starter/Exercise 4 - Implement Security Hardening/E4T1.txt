@@ -1,0 +1,12 @@
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+
+- Restrict/Remove SSH access: One of the best ways to prevent SSH brute force attacks is to restrict SSH access to only trusted IP addresses. This can be achieved by updating the inbound rules of the security group associated with the Web Service Instance.
+
+- Use a bastion host: A bastion host is a secure, hardened instance that sits in a public subnet and acts as a gateway to access instances in private subnets.
+
+- Implement rate limiting: Implementing rate limiting can help prevent brute force attacks by limiting the number of failed login attempts allowed within a specified time period. 
+
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+Instead of granting unrestricted access to all S3 resources, an IAM policy should be created that grants only the necessary permissions required to access the specific S3 bucket hosting the free recipes. In addition, a separate policy can be created for privileged users who require access to the secret recipes bucket. By enforcing least privilege access, the risk of unauthorized access to sensitive data can be significantly reduced. Besides that, enabling server-side encryption is essential.

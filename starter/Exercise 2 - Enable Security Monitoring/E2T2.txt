@@ -1,0 +1,19 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+
+- Define a security group that restricts access to unnecessary ports and only allows incoming traffic for authorized ports.
+- Update the WebAppSG security group to ensure that it only allows unrestricted incoming traffic for authorized ports.
+- Configure the HTTP load balancer to redirect all HTTP requests to HTTPS and drop HTTP headers for additional security - use port 433 (SSL).
+- Use CloudFront distribution to prevent direct access to the load balancer and ensure secure access.
+- Ensure that security groups do not use unsecured ports and do not allow all ingress traffic (0.0.0.0/0).
+- Enable server-side encryption for S3 buckets to protect sensitive data.
+- Enable logging for the ELB to track and monitor traffic.
+- Enable logging for load balancers to monitor traffic and improve security.
+- Enable the S3 Block Public Access setting to prevent accidental exposure of sensitive data.
+- Create an IAM role with minimal access to the S3 bucket.
+- Configure EC2 subnets to not automatically assign public IP addresses to reduce the risk of unauthorized access.
+- Ensure the S3 bucket used to store CloudTrail logs is not publicly accessible.
+- CloudTrail should have encryption at-rest enabled.
+- Enable MFA for the root user to increase security.

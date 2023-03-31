@@ -1,0 +1,12 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+
+# Poor practice 1 - Unrestricted SSH Access and Insecure Inbound Rules:
+Inbound rules are currently allowing unrestricted SSH access to the Web Service Instance, which can be risky as it can give unauthorized users access to the instance and potentially compromise the system. It is recommended to restrict SSH access to only trusted IP addresses, such as those belonging to the organization or specific users who require SSH access. 
+WebAppSG should only allow access from the HTTP load balancer to the Web Service Instance on port 5000. This will ensure that the Web Service Instance is only accessible through the ALB and reduce the risk of unauthorized access from other sources.
+
+#Poor practice 2 - Using a Public IP Address to Access the Web Service Instance:
+The use of a public IP address to access the Web Service Instance from the untrusted subnet can expose the instance to potential attacks from unauthorized entities. It is better to restrict access to the Web Service Instance by placing it in a private subnet. This will help prevent unauthorized access and protect the instance from potential attacks.
+
+# Poor practice 3 - Unrestricted S3 Access to the IAM Role:
+The IAM role is currently allowing unrestricted access to all S3 resources, which can be risky as it can give the Web Service Instance access to sensitive data or resources that it does not require. It is recommended to follow the principle of least privilege and grant access only to the specific S3 resources that are required for the application to function.
